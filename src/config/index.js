@@ -8,18 +8,12 @@ const production = {
   urls: {
     apiBaseUrl: '',
   },
-  reduxPersistConfig: {
-    key: '#-PROD',
-  },
 };
 
 const staging = {
   ...common,
   urls: {
     apiBaseUrl: '',
-  },
-  reduxPersistConfig: {
-    key: '#-STAG',
   },
 };
 
