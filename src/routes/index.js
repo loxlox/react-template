@@ -1,14 +1,27 @@
-import { createBrowserRouter } from 'react-router-dom'
-import { Layout } from './layout'
+import React from 'react'
+import { RouterLayout } from './layout'
+import Login from '../pages/login'
+import ForgotPassword from '../pages/forgot-password'
 import Dashboard from '../pages/dashboard'
+import Profile from '../pages/profile'
 
-function Routes() {
-  return createBrowserRouter([
-    {
-      path: '/',
-      element: Layout(Dashboard),
-    },
-  ])
-}
+const Routes = [
+  {
+    path: '/login',
+    element: <Login />,
+  },
+  {
+    path: '/forgot-password',
+    element: <ForgotPassword />,
+  },
+  {
+    path: '/',
+    element: RouterLayout(Dashboard),
+  },
+  {
+    path: '/profile',
+    element: RouterLayout(Profile),
+  },
+]
 
-export default Routes;
+export default Routes

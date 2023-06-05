@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
-// import { useRouter } from 'next/router'
+import { useNavigate } from 'react-router-dom'
 import { Avatar, Dropdown, Layout } from 'antd'
 import { LogoutOutlined, UserOutlined } from '@ant-design/icons'
 import CustomBreadcrumb from '../breadcrumb'
 
 
 function CustomHeader() {
-  // const router = useRouter()
+  let navigate = useNavigate()
   const [current, setCurrent] = useState('')
   const items = [
     {
@@ -29,14 +29,17 @@ function CustomHeader() {
       case 'logout':
         setCurrent(key)
         handleLogout(domEvent)
-        break;
-      default: break;
+        break
+      default:
+        setCurrent(key)
+        navigate(`/${key}`)
+        break
     }
   }
   const handleLogout = evt => {
     evt.preventDefault()
     localStorage.clear()
-    // router.push('/login')
+    navigate('/login')
   }
 
   return (

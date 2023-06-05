@@ -1,12 +1,14 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React from 'react'
+import { Card } from 'antd'
+import { useSelector } from 'react-redux'
 
 function Dashboard() {
-	const content = useSelector((state) => state.dashboard.value)
-	console.log(content)
+	const content = useSelector((state) => state.dashboard.content)
 	return (
-		<>This is Dashboard page.</>
+		<Card title={content}>
+			{content}
+		</Card>
 	)
-};
+}
 
-export default Dashboard;
+export default Dashboard

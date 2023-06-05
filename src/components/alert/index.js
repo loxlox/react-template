@@ -65,7 +65,7 @@ function CustomAlert({ metaData }) {
 				/>
 			)}
 		</>
-	);
+	)
 }
 
 export default CustomAlert

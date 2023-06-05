@@ -1,0 +1,87 @@
+/**
+ *  Table of Content
+ *
+ *  # Typography
+ *  # Button
+ *  # Breadcrumb
+ *  # Card
+ *  # Form
+ *  # Menu
+ */
+
+/**
+ *  # Typography
+ */
+h1,
+h1.ant-typography,
+h2,
+h2.ant-typography,
+h3,
+h3.ant-typography,
+h4,
+h4.ant-typography,
+h5,
+h5.ant-typography,
+h6,
+h6.ant-typography {
+	margin: 0 0 0.5rem !important;
+}
+
+/**
+ *  # Button
+ */
+.ant-btn.ant-btn-icon-only {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/**
+ *  # Breadcrumb
+ */
+.ant-breadcrumb ol,
+.ant-breadcrumb ol > li,
+.ant-breadcrumb ol > li > a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ant-breadcrumb .ant-breadcrumb-separator {
+  margin-inline: 5px;
+}
+
+
+/**
+ *  # Card
+ */
+.ant-card,
+.ant-card:not(.ant-card-bordered) {
+  box-shadow: 10px 0 10px 5px rgba(0, 0, 0, 0.01);
+}
+.ant-card .ant-card-head,
+.ant-card .ant-card-body {
+  padding: 1rem;
+}
+
+/**
+ *  # Form
+ */
+.ant-form-item {
+  margin-bottom: 1rem;
+}
+.ant-form-item:last-child {
+  margin-bottom: 0;
+}
+.ant-picker {
+  width: 100%;
+}
+
+/**
+ *  # Menu
+ */
+.ant-menu-item {
+  padding: 0 1rem !important;
+}
+.ant-dropdown .ant-dropdown-menu {
+  min-width: 200px;
+}

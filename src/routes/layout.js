@@ -1,10 +1,10 @@
 import React from 'react'
-import FullLayout from '../layout'
+import LayoutComponent from '../layout'
 
-export const Layout = (ComposedComponent) => {
+export const RouterLayout = (ComposedComponent) => {
   return (
-    <FullLayout>
+    <LayoutComponent>
       <ComposedComponent />
-    </FullLayout>
+    </LayoutComponent>
   )
 }

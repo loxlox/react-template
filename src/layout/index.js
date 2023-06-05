@@ -5,14 +5,14 @@ import CustomHeader from '../components/header'
 import CustomFooter from '../components/footer'
 
 
-function FullLayout() {
+function LayoutComponent({children}) {
   return (
-    <Layout>
+    <Layout hasSider>
       <CustomSider />
-      <Layout className="site-layout">
+      <Layout>
         <CustomHeader />
-        <Layout.Content className="site-layout-background">
-          crot.
+        <Layout.Content>
+          {children}
         </Layout.Content>
         <CustomFooter />
       </Layout>
@@ -20,4 +20,4 @@ function FullLayout() {
   )
 }
 
-export default FullLayout
+export default LayoutComponent

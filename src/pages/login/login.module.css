@@ -1,0 +1,28 @@
+.auth_login_page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  background: #EFEFEF;
+}
+.auth_login_page .auth_wrapper {
+  flex: 1;
+}
+.auth_login_page .logo {
+  height: 32px;
+  margin: 0 0 24px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+}
+.auth_login_page .btn_login {
+  width: 100%;
+}
+.auth_login_page .form_item_password {
+  margin: 0;
+}
+.auth_login_page .forgot_password {
+  display: flex;
+  justify-content: flex-end;
+  margin: 15px 0;
+}

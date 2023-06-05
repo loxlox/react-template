@@ -1,0 +1,80 @@
+/**
+ *  Table of Content
+ *
+ *  # General
+ *  # Header
+ *  # Sider
+ *  # Content
+ *  # Footer
+ */
+
+/**
+ *  # General
+ */
+* {
+  font-family: 'Lexend', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' !important;
+}
+html,
+body {
+  font-size: 14px;
+}
+#root {
+  min-height: 100vh;
+  background: #fefefe;
+}
+#root .ant-layout {
+  min-height: 100vh;
+}
+
+/**
+ *  # Header
+ */
+.ant-layout-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 0 2rem;
+  box-shadow: 10px 0 10px 5px rgba(0, 0, 0, 0.01);
+}
+
+/**
+ *  # Sider
+ */
+.ant-layout-sider {
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.01);
+}
+.ant-layout-sider .ant-menu {
+  padding: 1rem;
+}
+.sider-top-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 1.143rem 1rem;
+}
+.ant-layout-sider.ant-layout-sider-collapsed .sider-top-wrapper {
+  justify-content: center;
+}
+
+/**
+ *  # Content
+ */
+.ant-layout-content {
+  padding: 2rem;
+}
+
+/**
+ *  # Footer
+ */
+.ant-layout-footer {
+  position: relative;
+  z-index: 2;
+  padding: 1rem 2rem;
+  background: #ffffff;
+  box-shadow: 10px 0 10px 5px rgba(0, 0, 0, 0.01);
+}

@@ -1,4 +1,12 @@
-import moment from 'moment'
+import dayjs from 'dayjs'
+import * as utc from 'dayjs/plugin/utc'
+import * as timezone from 'dayjs/plugin/timezone'
+import * as localizedFormat from 'dayjs/plugin/localizedFormat'
+
+// Call plugin for dayjs
+dayjs.extend(utc)
+dayjs.extend(timezone)
+dayjs.extend(localizedFormat)
 
 /**
  *  Set local storage item with time stamp
@@ -73,10 +81,8 @@ export function capitalizeFirstLetter(string) {
 }
 
 /**
- *  Convert Date to Malaysia Timezone
+ *  Convert Date Timezone
  */
-export function convertTZ(date, format = 'DD MMM YYYY HH:mm:ss') {
-  const convertedDate = new Date((typeof date === 'string' && date !== undefined ? new Date(date) : date).toLocaleString('en-US', { timeZone: 'Asia/Jakarta' }))
-
-  return moment(convertedDate).format(format)
+export function convertTZ(date = dayjs(), format = 'LLLL', tz = dayjs.tz.guess()) {
+  return dayjs.tz(date, tz).format(format)
 }
