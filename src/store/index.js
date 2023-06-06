@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit'
-import dashboardReducer from './dashboard/reducers'
+import dashboardReducer from './dashboard/reducer'
 
 export default configureStore({
 	reducer: {

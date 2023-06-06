@@ -16,12 +16,12 @@ export default {
 
     try {
       const response = await axios(URI, {
+        ...customOptions,
         method: method,
         headers: {
+          ...customHeaders,
           'Authorization': token ? `Bearer ${token}` : undefined,
-          ...customHeaders
         },
-        ...customOptions
       })
 
       return response.data

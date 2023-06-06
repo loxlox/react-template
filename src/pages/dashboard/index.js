@@ -1,14 +1,25 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Card } from 'antd'
-import { useSelector } from 'react-redux'
+import { statusHtmlStorage } from '../../services/helpers'
+// import * as actionDashboard from '../../store/dashboard/action'
 
-function Dashboard() {
-	const content = useSelector((state) => state.dashboard.content)
+
+const Dashboard = (props) => {
+	console.log(statusHtmlStorage('test'))
 	return (
-		<Card title={content}>
-			{content}
+		<Card>
+			This is dashboard page.
 		</Card>
 	)
 }
 
-export default Dashboard
+const stateToProps = (state) => {
+	return {}
+}
+
+const dispatchToProps = (dispatch) => {
+	return {}
+}
+
+export default connect(stateToProps, dispatchToProps)(Dashboard)

@@ -3,11 +3,6 @@ import * as utc from 'dayjs/plugin/utc'
 import * as timezone from 'dayjs/plugin/timezone'
 import * as localizedFormat from 'dayjs/plugin/localizedFormat'
 
-// Call plugin for dayjs
-dayjs.extend(utc)
-dayjs.extend(timezone)
-dayjs.extend(localizedFormat)
-
 /**
  *  Set local storage item with time stamp
  */
@@ -17,9 +12,11 @@ export function setHtmlStorage(name, value, expires) {
     if (expires === undefined || expires === 'null') {
       expires = 3600
     }
+
     // Schedule when the token should be expired
     const date = new Date()
     const schedule = Math.round(date.setSeconds(date.getSeconds() + expires) / 1000)
+
     // Set the actual value as well as the time
     localStorage.setItem(name, value)
     localStorage.setItem(`${name}_time`, schedule)
@@ -41,28 +38,27 @@ export function statusHtmlStorage(name) {
   // Get current time
   const date = new Date()
   const current = Math.round(+date / 1000)
+
   // Pull the storage item's expiration
   let stored_time = parseInt(localStorage.getItem(`${name}_time`))
-  if (!stored_time === undefined || stored_time === 'null') {
+  if (stored_time === undefined || stored_time === 'null') {
     stored_time = 0
   }
-  // Determine if it is expired
+  // Check if stored time is nan
   if (isNaN(stored_time)) {
-    // If expired, remove it and return false
+    stored_time = 0
+  }
+
+  if (current > stored_time) {
     return false
   }
-  if (stored_time < current) {
-    // If expired, remove it and return false
-    return false
-  }
-  // If not, return true
-  return 1
+  return true
 }
 
 /**
  *  Thousand separator
  */
-export function numberWithCommas(number, fixed = 2) {
+export function thousandSeparator(number, fixed = 2) {
   number = number !== null ? parseFloat(number).toFixed(fixed) : 0
   const parts = number.toString().split('.')
   const numberPart = parts[0]
@@ -83,6 +79,10 @@ export function capitalizeFirstLetter(string) {
 /**
  *  Convert Date Timezone
  */
+// Call plugin for dayjs
+dayjs.extend(utc)
+dayjs.extend(timezone)
+dayjs.extend(localizedFormat)
 export function convertTZ(date = dayjs(), format = 'LLLL', tz = dayjs.tz.guess()) {
   return dayjs.tz(date, tz).format(format)
 }
