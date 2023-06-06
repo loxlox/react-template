@@ -6,8 +6,8 @@ export default {
   fetchApi: async (
     url,
     method,
-    customHeaders = { 'Content-Type': 'application/json' },
     customOptions = {},
+    customHeaders = { 'Content-Type': 'application/json' },
     // blob = false
   ) => {
 
