@@ -12,12 +12,8 @@ const Dashboard = (props) => {
 	)
 }
 
-const stateToProps = (state) => {
-	return {}
-}
+const stateToProps = (state) => ({})
 
-const dispatchToProps = (dispatch) => {
-	return {}
-}
+const dispatchToProps = (dispatch) => ({})
 
 export default connect(stateToProps, dispatchToProps)(Dashboard)
