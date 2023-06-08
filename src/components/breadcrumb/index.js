@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Breadcrumb } from 'antd'
 import { GoChevronRight, GoHome } from 'react-icons/go'
-import { capitalizeFirstLetter } from '../../services/helpers'
+import { capitalizeFirstLetter } from '../../config/helper'
 
 
 function CustomBreadcrumb() {
