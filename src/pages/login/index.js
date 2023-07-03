@@ -14,7 +14,7 @@ function Login() {
 			<div className={styles.auth_wrapper}>
 				<Row justify="center">
 					<Col xs={24} md={5}>
-						<Card bordered={false}>
+						<Card>
 							<div className={styles.logo} />
 							{/* <CustomAlert metaData={loginPassResponse.meta} /> */}
 							<Form
