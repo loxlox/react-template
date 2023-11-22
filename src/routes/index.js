@@ -1,27 +1,27 @@
-import React from 'react'
-import { RouterLayout } from './layout'
-import Login from '../pages/login'
-import ForgotPassword from '../pages/forgot-password'
-import Dashboard from '../pages/dashboard'
-import Profile from '../pages/profile'
+import React from "react";
+import Layout from "./Layout";
+import Login from "../pages/login";
+import ForgotPassword from "../pages/forgot-password";
+import Dashboard from "../pages/dashboard";
+import Profile from "../pages/profile";
 
 const Routes = [
   {
-    path: '/login',
+    path: "/login",
     element: <Login />,
   },
   {
-    path: '/forgot-password',
+    path: "/forgot-password",
     element: <ForgotPassword />,
   },
   {
-    path: '/',
-    element: RouterLayout(Dashboard),
+    path: "/",
+    element: Layout(Dashboard),
   },
   {
-    path: '/profile',
-    element: RouterLayout(Profile),
+    path: "/profile",
+    element: Layout(Profile),
   },
-]
+];
 
-export default Routes
+export default Routes;

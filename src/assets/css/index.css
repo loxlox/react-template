@@ -2,5 +2,5 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400italic,600italic,400,600);
 
 /* Theme css stylesheet */
-@import './layout.css';
-@import './components.css';
+@import "./layout.css";
+@import "./components.css";

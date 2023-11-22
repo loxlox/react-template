@@ -1,32 +1,27 @@
 /* eslint-disable import/no-anonymous-default-export */
-import axios from 'axios'
-import config from '../config'
+import axios from "axios";
+import config from "../config";
 
-export default {
-  fetchApi: async (
-    url,
-    method,
-    customOptions = {},
-    customHeaders = { 'Content-Type': 'application/json' },
-    // blob = false
-  ) => {
+export default async function fetchApi(
+  url,
+  method,
+  customOptions = {},
+  customHeaders = { "Content-Type": "application/json" }
+) {
+  const token = localStorage.getItem("accessToken");
 
-    const URI = config.urls.apiBaseUrl + url
-    const token = localStorage.getItem('accessToken')
+  try {
+    const response = await fetch(url, {
+      ...customOptions,
+      method: method,
+      headers: {
+        ...customHeaders,
+        Authorization: token ? `Bearer ${token}` : undefined,
+      },
+    });
 
-    try {
-      const response = await axios(URI, {
-        ...customOptions,
-        method: method,
-        headers: {
-          ...customHeaders,
-          'Authorization': token ? `Bearer ${token}` : undefined,
-        },
-      })
-
-      return response.data
-    } catch (error) {
-      console.error(error)
-    }
+    return response.data;
+  } catch (error) {
+    console.error(error);
   }
 }

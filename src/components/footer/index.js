@@ -1,14 +1,9 @@
-import React from 'react'
-import { Layout } from 'antd'
-import dayjs from 'dayjs'
-
+import React from "react";
+import { Layout } from "antd";
+import dayjs from "dayjs";
 
 function CustomFooter() {
-  return (
-    <Layout.Footer>
-      ©{dayjs().year()}
-    </Layout.Footer>
-  )
+  return <Layout.Footer>©{dayjs().year()}</Layout.Footer>;
 }
 
-export default CustomFooter
+export default CustomFooter;

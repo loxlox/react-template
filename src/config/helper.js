@@ -1,7 +1,7 @@
-import dayjs from 'dayjs'
-import * as utc from 'dayjs/plugin/utc'
-import * as timezone from 'dayjs/plugin/timezone'
-import * as localizedFormat from 'dayjs/plugin/localizedFormat'
+import dayjs from "dayjs";
+import * as utc from "dayjs/plugin/utc";
+import * as timezone from "dayjs/plugin/timezone";
+import * as localizedFormat from "dayjs/plugin/localizedFormat";
 
 /**
  *  Set local storage item with time stamp
@@ -9,17 +9,19 @@ import * as localizedFormat from 'dayjs/plugin/localizedFormat'
 export function setHtmlStorage(name, value, expires) {
   if (value) {
     // Set default expiration to 1 hour if undefined or null
-    if (expires === undefined || expires === 'null') {
-      expires = 3600
+    if (expires === undefined || expires === "null") {
+      expires = 3600;
     }
 
     // Schedule when the token should be expired
-    const date = new Date()
-    const schedule = Math.round(date.setSeconds(date.getSeconds() + expires) / 1000)
+    const date = new Date();
+    const schedule = Math.round(
+      date.setSeconds(date.getSeconds() + expires) / 1000
+    );
 
     // Set the actual value as well as the time
-    localStorage.setItem(name, value)
-    localStorage.setItem(`${name}_time`, schedule)
+    localStorage.setItem(name, value);
+    localStorage.setItem(`${name}_time`, schedule);
   }
 }
 
@@ -27,8 +29,8 @@ export function setHtmlStorage(name, value, expires) {
  *  Remove local storage item and time stamp
  */
 export function removeHtmlStorage(name) {
-  localStorage.removeItem(name)
-  localStorage.removeItem(`${name}_time`)
+  localStorage.removeItem(name);
+  localStorage.removeItem(`${name}_time`);
 }
 
 /**
@@ -36,53 +38,58 @@ export function removeHtmlStorage(name) {
  */
 export function statusHtmlStorage(name) {
   // Get current time
-  const date = new Date()
-  const current = Math.round(+date / 1000)
+  const date = new Date();
+  const current = Math.round(+date / 1000);
 
   // Pull the storage item's expiration
-  let stored_time = parseInt(localStorage.getItem(`${name}_time`))
-  if (stored_time === undefined || stored_time === 'null') {
-    stored_time = 0
+  let stored_time = parseInt(localStorage.getItem(`${name}_time`));
+  if (stored_time === undefined || stored_time === "null") {
+    stored_time = 0;
   }
   // Check if stored time is nan
   if (isNaN(stored_time)) {
-    stored_time = 0
+    stored_time = 0;
   }
 
   if (current > stored_time) {
-    return false
+    return false;
   }
-  return true
+  return true;
 }
 
 /**
  *  Thousand separator
  */
 export function thousandSeparator(number, fixed = 2) {
-  number = number !== null ? parseFloat(number).toFixed(fixed) : 0
-  const parts = number.toString().split('.')
-  const numberPart = parts[0]
-  const decimalPart = parts[1]
-  const thousands = /\B(?=(\d{3})+(?!\d))/g
-  const newNumber = numberPart.replace(thousands, ',') + (decimalPart ? '.' + decimalPart : '')
+  number = number !== null ? parseFloat(number).toFixed(fixed) : 0;
+  const parts = number.toString().split(".");
+  const numberPart = parts[0];
+  const decimalPart = parts[1];
+  const thousands = /\B(?=(\d{3})+(?!\d))/g;
+  const newNumber =
+    numberPart.replace(thousands, ",") + (decimalPart ? "." + decimalPart : "");
 
-  return newNumber
+  return newNumber;
 }
 
 /**
  *  Capitalize First Letter
  */
 export function capitalizeFirstLetter(string) {
-  return string.charAt(0).toUpperCase() + string.slice(1)
+  return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
 /**
  *  Convert Date Timezone
  */
 // Call plugin for dayjs
-dayjs.extend(utc)
-dayjs.extend(timezone)
-dayjs.extend(localizedFormat)
-export function convertTZ(date = dayjs(), format = 'LLLL', tz = dayjs.tz.guess()) {
-  return dayjs.tz(date, tz).format(format)
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.extend(localizedFormat);
+export function convertTZ(
+  date = dayjs(),
+  format = "LLLL",
+  tz = dayjs.tz.guess()
+) {
+  return dayjs.tz(date, tz).format(format);
 }

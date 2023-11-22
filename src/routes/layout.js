@@ -1,10 +1,12 @@
-import React from 'react'
-import LayoutComponent from '../layout'
+import React from "react";
+import LayoutComponent from "../layout";
 
-export const RouterLayout = (ComposedComponent) => {
+function Layout(ComposedComponent) {
   return (
     <LayoutComponent>
       <ComposedComponent />
     </LayoutComponent>
-  )
+  );
 }
+
+export default Layout;

@@ -24,7 +24,7 @@ h5,
 h5.ant-typography,
 h6,
 h6.ant-typography {
-	margin: 0 0 0.5rem !important;
+  margin: 0 0 0.5rem !important;
 }
 
 /**
@@ -41,7 +41,7 @@ h6.ant-typography {
  */
 .ant-breadcrumb ol,
 .ant-breadcrumb ol > li,
-.ant-breadcrumb ol > li > a {
+.ant-breadcrumb ol > li a {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,7 +49,6 @@ h6.ant-typography {
 .ant-breadcrumb .ant-breadcrumb-separator {
   margin-inline: 5px;
 }
-
 
 /**
  *  # Card

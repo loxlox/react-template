@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { Button, Card, Col, Form, Input, Row } from 'antd'
-import styles from './forgot.module.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import { Button, Card, Col, Form, Input, Row } from "antd";
+import styles from "./forgot.module.css";
 
 function ForgotPassword() {
   return (
@@ -10,14 +10,10 @@ function ForgotPassword() {
         <Row justify="center">
           <Col xs={24} md={5}>
             <Card>
-              <Form
-                autoComplete="off"
-                colon={false}
-                layout="vertical"
-              >
+              <Form autoComplete="off" colon={false} layout="vertical">
                 <Form.Item>
                   <Input
-										required
+                    required
                     placeholder="Email"
                     type="email"
                     name="email"
@@ -32,10 +28,7 @@ function ForgotPassword() {
                   >
                     Reset Password
                   </Button>
-                  <Link
-                    to="/login"
-                    className={styles.btn_back_login}
-                  >
+                  <Link to="/login" className={styles.btn_back_login}>
                     Back to Login Page
                   </Link>
                 </Form.Item>
@@ -45,7 +38,7 @@ function ForgotPassword() {
         </Row>
       </div>
     </div>
-  )
+  );
 }
 
-export default ForgotPassword
+export default ForgotPassword;
